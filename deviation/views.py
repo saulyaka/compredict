@@ -1,13 +1,14 @@
 from rest_framework import views
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 import numpy as np
 from numpy.core._exceptions import UFuncTypeError
 from .serializers import StandardDeviationSerializer
 
 class StandardDeviationView(views.APIView):
     serializer_class = StandardDeviationSerializer
-    permission_classes = []
+    permission_classes = [IsAuthenticated, ]
 
     def post(self, request, *args, **kwargs):
         success = self.request_validation(request.data)
@@ -83,4 +84,3 @@ class StandardDeviationView(views.APIView):
 
         # Exlude empty list
         return self.length > 0
-

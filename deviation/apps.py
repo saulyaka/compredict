@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DiviationConfig(AppConfig):
+class DeviationConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'diviation'
+    name = 'deviation'

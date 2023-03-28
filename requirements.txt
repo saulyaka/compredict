@@ -7,3 +7,4 @@ uritemplate
 drf-spectacular
 coverage
 numpy
+djangorestframework_simplejwt
