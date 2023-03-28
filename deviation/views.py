@@ -6,6 +6,7 @@ import numpy as np
 from numpy.core._exceptions import UFuncTypeError
 from .serializers import StandardDeviationSerializer
 
+
 class StandardDeviationView(views.APIView):
     serializer_class = StandardDeviationSerializer
     permission_classes = [IsAuthenticated, ]
