@@ -1,0 +1,9 @@
+django>=3.0,<4.0
+djangorestframework>=3.0,<4.0
+django-filter
+flake8==3.9.2
+pyyaml
+uritemplate
+drf-spectacular
+coverage
+numpy
