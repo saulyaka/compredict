@@ -6,5 +6,7 @@ pyyaml
 uritemplate
 drf-spectacular
 coverage
+scipy
+scikit-learn
 numpy
 djangorestframework_simplejwt
