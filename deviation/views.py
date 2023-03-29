@@ -3,13 +3,14 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 import numpy as np
+import itertools, re
 from numpy.core._exceptions import UFuncTypeError
 from .serializers import StandardDeviationSerializer
 
 
 class StandardDeviationView(views.APIView):
     serializer_class = StandardDeviationSerializer
-    permission_classes = [IsAuthenticated, ]
+    # permission_classes = [IsAuthenticated, ]
 
     def post(self, request, *args, **kwargs):
         success = self.request_validation(request.data)
@@ -28,38 +29,32 @@ class StandardDeviationView(views.APIView):
         return response
 
     def standard_deviation(self):
-        result = {}
-        i = 1
-        unsuccess = {
+        inputs = {int(m.group(1)): v for k, v in self.request.data.items()
+        if (m := re.match(r"sensor_(\d*)", k))}
+        
+        # create a dataset
+        try:
+            array = np.fromiter(
+            itertools.chain.from_iterable(inputs.values()),
+                dtype=float).reshape(len(self.request.data), -1)
+        except ValueError:
+            return {
             'success': False,
             'result': None
-        }
-        # create a dataset
-        my_array = np.empty((0, self.length))
-        for key in self.request.data:
-            new_row = np.array(self.request.data[key])
-            if sum(new_row) == 0:
-                return unsuccess
-            my_array = np.append(my_array, [new_row], axis=0)
+            }
 
         # calculate the mean and standard deviation for each column
-        try:
-            means = np.mean(my_array, axis=1)
-        except UFuncTypeError:
-            return unsuccess
-        stds = np.std(my_array, axis=1)
+        means = np.mean(array, axis=1, keepdims=True)
+        stds = np.std(array, axis=1, keepdims=True)
 
         # subtract the mean from each column
-        my_array -= means.reshape(-1, 1)
+        array -= means
 
         # standardize the dataset by subtracting the mean and dividing by the standard deviation
-        my_array /= stds.reshape(-1, 1)
+        array /= stds
 
         # prepare data for serializer
-        for row in my_array:
-            result[f'sensor{i}'] = list(row)
-            i += 1
-        print(result)
+        result = {f"sensor{i}": v for i, v in zip(inputs, array)}
         return {
             'success': True,
             'result': result
@@ -70,18 +65,10 @@ class StandardDeviationView(views.APIView):
         First level validation: Check if there is dictionary 
         and all dict lists are the same length > 0.
         """
-        # Lookin for the lenght
-        if len(data) > 0:
-            for key in data:
-                self.length = len(data[key])
-                break
-        else:
+        if not isinstance(data, dict):
             return False
-
-        # Checking other lenght
-        for key in data:
-            if len(data[key]) != self.length:
+        if data:
+            length = len(next(iter(data.values())))
+            if not all(len(v) == length for v in data.values()):
                 return False
-
-        # Exlude empty list
-        return self.length > 0
+        return True
