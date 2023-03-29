@@ -1,14 +1,11 @@
-Title: Django DRF COMPREDICT / Repositoriy: saulyaka/compredict
+*Title: Django DRF COMPREDICT / Repositoriy: saulyaka/compredict
 version: 0.0.1
-Author: Alla Popova
+*Author: Alla Popova
 Framework: Django
 Data base: Sqlite3
 
-    Project status: working/dev
-Launch server: 
-    in CL: docker-compose up
-Test project
-    in web container: cover
+*Project status: working/dev
+
 Django server expose on 0.0.0.0:8000
 
 API documentation:
