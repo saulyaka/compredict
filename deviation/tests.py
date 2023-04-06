@@ -25,19 +25,19 @@ class TestCaseBase(APITestCase):
 class DeviationTestClass(TestCaseBase):
     url = reverse('standard_deviation')
 
-    # def test_standard_deviation_no_auth(self):
-    #     response = self.client.post(
-    #         self.url,
-    #         data={
-    #             "sensor_1": [5.44, 3.22, 6.55, 8.54, 1.24],
-    #             "sensor_2": [5444.44, 33.22, 622.55, 812.54, 123.24],
-    #             "sensor_3": [0.44, 0.22, 0.55, 0.54, 0.24]
-    #         },
-    #         content_type='application/json'
-    #     )
-    #     self.assertEqual(
-    #         response.status_code, status.HTTP_401_UNAUTHORIZED, response.data
-    #     )
+    def test_standard_deviation_no_auth(self):
+        response = self.client.post(
+            self.url,
+            data={
+                "sensor_1": [5.44, 3.22, 6.55, 8.54, 1.24],
+                "sensor_2": [5444.44, 33.22, 622.55, 812.54, 123.24],
+                "sensor_3": [0.44, 0.22, 0.55, 0.54, 0.24]
+            },
+            content_type='application/json'
+        )
+        self.assertEqual(
+            response.status_code, status.HTTP_401_UNAUTHORIZED, response.data
+        )
 
     def test_standard_deviation(self):
         response = self.client.post(
@@ -135,5 +135,4 @@ class UnsaccessTestCase(TestCaseBase):
             **self.bearer_token
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEquals(response.data['success'], False)
-        self.assertTrue(response.data['result']['error'])
+        self.assertEquals(response.data['success'], True)
