@@ -20,10 +20,13 @@ Web service provides a way to normalize **JSON** data collected from sensors. Th
 > **documentation**
 >> /doc/schema/docs/
 >
-> **deviation**  /api/deviation/
+> **deviation**
+>> /api/deviation/
 >
-> **jwt**  /api/token/
+> **jwt**
+>> /api/token/
 >
-> **refresh token**  /api/token/refresh/
+> **refresh token**
+>> /api/token/refresh/
 ### **Test coverage report:**
         htmlcov/index.html
