@@ -7,8 +7,8 @@
 ### **About the project**
 Web service provides a way to normalize **JSON** data collected from sensors. The data can be accessed through **JWT authentication** for security purposes. The normalization process involves removing the mean and dividing by the **standard deviation for each column** of the data to standardize it. The normalized data can then be used for further analysis or modeling.
 ### **Requirements:**
-Docker version 23.0.3
-Docker compose version v2.17.2
+> - Docker version 23.0.3
+> - Docker compose version v2.17.2
 ## **Install project:**
 Command: docker compose up
 Sever exposes on 0.0.0.0 port 8000
