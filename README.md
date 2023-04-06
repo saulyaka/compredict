@@ -14,9 +14,9 @@ Command: docker compose up
 Sever exposes on 0.0.0.0 port 8000
 Docker will create image compredict_app and start container app
 ### **Endpoints**
-**documentation**  /doc/schema/docs/
-**deviation**  /api/
-**jwt**  /api/token/
-**refresh token**  /api/token/refresh/
+> - **documentation**  /doc/schema/docs/
+> - **deviation**  /api/
+> - **jwt**  /api/token/
+> - **refresh token**  /api/token/refresh/
 ### **Test coverage report:**
         htmlcov/index.html
