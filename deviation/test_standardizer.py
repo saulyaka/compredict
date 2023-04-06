@@ -23,10 +23,10 @@ class ValidationTestCase(TestCase):
 class StandardDeviationTestCase(TestCase):
 
     def test_correct_result(self):
-        data = 	{
+        data = {
             "sensor_1": [5.44, 3.22, 6.55, 8.54, 1.24],
-	        "sensor_2": [5444.44, 33.22, 622.55, 812.54, 1233.24],
-	        "sensor_3": [0.44, 0.22, 0.55, 0.54, 0.24]
+            "sensor_2": [5444.44, 33.22, 622.55, 812.54, 1233.24],
+            "sensor_3": [0.44, 0.22, 0.55, 0.54, 0.24]
         }
         normalized_data = standard_deviation(data)
         self.assertEqual(normalized_data['success'], True)
@@ -38,10 +38,10 @@ class StandardDeviationTestCase(TestCase):
             normalized_data['result']["sensor3"][2], 1.0658861555611072)
 
     def test_zero_vector(self):
-        data = 	{
+        data = {
             "sensor_1": [5.44, 3.22, 6.55, 8.54, 1.24],
 	        "sensor_2": [5444.44, 33.22, 622.55, 812.54, 1233.24],
-	        "sensor_3": [0, 0, 0, 0, 0]
+            "sensor_3": [0, 0, 0, 0, 0]
         }
         normalized_data = standard_deviation(data)
         self.assertEqual(normalized_data['success'], True)
@@ -55,8 +55,8 @@ class StandardDeviationTestCase(TestCase):
     def test_incorrect_values(self):
         data = 	{
             "sensor_1": ['asd', 3.22, 6.55, 8.54, 1.24],
-	        "sensor_2": [5444.44, 33.22, 622.55, 812.54, 1233.24],
-	        "sensor_3": [0.44, 0.22, 0.55, 0.54, 0.24]
+            "sensor_2": [5444.44, 33.22, 622.55, 812.54, 1233.24],
+            "sensor_3": [0.44, 0.22, 0.55, 0.54, 0.24]
         }
         normalized_data = standard_deviation(data)
         self.assertEqual(normalized_data['success'], False)

@@ -1,13 +1,14 @@
 import itertools
 import re
 import numpy as np
-from django.core.exceptions import ValidationError
 from sklearn.preprocessing import StandardScaler
+
 
 def standard_deviation(data):
     inputs = {int(m.group(1)): v for k, v in data.items()
     if (m := re.match(r"sensor_(\d*)", k))}
-    # create a numpy array from the data
+
+    # create a numpy 2d array from the data
     try:
          array = np.fromiter(
             itertools.chain.from_iterable(inputs.values()),
