@@ -1,4 +1,4 @@
-### **Title: Django DRF COMPREDICT** / Repositoriy: saulyaka/compredict
+### **Title: Django COMPREDICT** / Repositoriy: saulyaka/compredict
 ##### **version:** 0.0.1
 #### **Author:** Alla Popova
 #### **Framework:** Django
