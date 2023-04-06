@@ -15,9 +15,10 @@ Web service provides a way to normalize **JSON** data collected from sensors. Th
 >
 > Sever exposes on 0.0.0.0 port 8000
 >
-> Docker will create image compredict_app and start container app
+> Docker will create image compredict_app and start container app.
 ### **Endpoints**
-> **documentation**  /doc/schema/docs/
+> **documentation**
+>> /doc/schema/docs/
 >
 > **deviation**  /api/deviation/
 >
