@@ -10,9 +10,9 @@ Web service provides a way to normalize **JSON** data collected from sensors. Th
 > - Docker version 23.0.3
 > - Docker compose version v2.17.2
 ## **Install project:**
-Command: docker compose up
-Sever exposes on 0.0.0.0 port 8000
-Docker will create image compredict_app and start container app
+> Command: docker compose up
+> Sever exposes on 0.0.0.0 port 8000
+> Docker will create image compredict_app and start container app
 ### **Endpoints**
 > - **documentation**  /doc/schema/docs/
 > - **deviation**  /api/
