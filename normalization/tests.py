@@ -23,7 +23,7 @@ class TestCaseBase(APITestCase):
 
 
 class DeviationTestClass(TestCaseBase):
-    url = reverse('standard_deviation')
+    url = reverse('normalization')
 
     def test_standard_deviation_no_auth(self):
         response = self.client.post(
@@ -111,7 +111,7 @@ class DeviationTestClass(TestCaseBase):
 
 
 class UnsaccessTestCase(TestCaseBase):
-    url = reverse('standard_deviation')
+    url = reverse('normalization')
 
     def test_empty_request(self):
         response = self.client.post(

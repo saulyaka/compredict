@@ -1,4 +1,4 @@
-### **Title: Django COMPREDICT** / Repositoriy: saulyaka/compredict
+### **Title: Standardization Django COMPREDICT** / Repositoriy: saulyaka/compredict
 ##### **version:** 0.0.1
 #### **Author:** Alla Popova
 #### **Framework:** Django
@@ -13,20 +13,20 @@ Web service provides a way to normalize **JSON** data collected from sensors. Th
 ## **Install project:**
 > Command: docker-compose up
 >
-> Sever exposes on 0.0.0.0 port 8000
+> Sever exposes on port 8000
 >
 > Docker will create image compredict_app and start container app.
 ### **Endpoints**
 > **documentation**
->> [/doc/schema/docs/](http:0.0.0.0:8000/doc/schema/docs/)
+>> [/doc/schema/docs/](http:localhost:8000/doc/schema/docs/)
 >
-> **deviation**
->> [/api/deviation/](http:0.0.0.0:8000/api/deviation/)
+> **normalization**
+>> [/api/normalization/](http:localhost:8000/api/normalization/)
 >
 > **jwt**
->> [/api/token/](http:0.0.0.0:8000/api/deviation/)
+>> [/api/token/](http:localhost:8000/api/deviation/)
 >
 > **refresh token**
->> [/api/token/refresh/](http:0.0.0.0:8000//api/token/refresh/)
+>> [/api/token/refresh/](http:localhost:8000//api/token/refresh/)
 ### **Test coverage report:**
         htmlcov/index.html

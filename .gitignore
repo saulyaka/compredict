@@ -3,7 +3,7 @@
 *.pot
 *.pyc
 __pycache__
-sqlite*
+db.sqlite*
 
 # Environments 
 .env 

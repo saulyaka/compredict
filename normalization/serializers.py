@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
 
-class StandardDeviationSerializer(serializers.Serializer):
+class StandardizationSerializer(serializers.Serializer):
     success = serializers.BooleanField()
     result = serializers.DictField()

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-mivhp^5!#xdw_mq=kvu_%)p4ow8=7b(pl%7p)zkje4rf5i@@^%
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '0.0.0.0',
+    '*',
 ]
 
 
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
-    'deviation',
+    'normalization',
     'documentation',
 ]
 
@@ -139,6 +139,6 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Django DRF COMPREDICT',
+    'TITLE': 'Django COMPREDICT',
     'VERSION': '0.0.1',
 }
