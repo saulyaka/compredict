@@ -25,7 +25,7 @@ class TestCaseBase(APITestCase):
 class DeviationTestClass(TestCaseBase):
     url = reverse('normalization')
 
-    def test_standard_deviation_no_auth(self):
+    def test_normalization_no_auth(self):
         response = self.client.post(
             self.url,
             data={
@@ -39,7 +39,7 @@ class DeviationTestClass(TestCaseBase):
             response.status_code, status.HTTP_401_UNAUTHORIZED, response.data
         )
 
-    def test_standard_deviation(self):
+    def test_normalization(self):
         response = self.client.post(
             self.url,
             data=json.dumps({

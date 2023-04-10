@@ -24,7 +24,7 @@ Web service provides a way to normalize **JSON** data collected from sensors. Th
 >> [/api/normalization/](http:localhost:8000/api/normalization/)
 >
 > **jwt**
->> [/api/token/](http:localhost:8000/api/deviation/)
+>> [/api/token/](http:localhost:8000/api/token/)
 >
 > **refresh token**
 >> [/api/token/refresh/](http:localhost:8000//api/token/refresh/)
