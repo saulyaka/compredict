@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
-from .standardizer import request_validation, standard_deviation
+import normalization.standardizer as standardizer
 from .serializers import StandardizationSerializer
 
 from drf_spectacular.utils import extend_schema, OpenApiExample
@@ -82,11 +82,11 @@ class StandardDeviationView(views.APIView):
     permission_classes = [IsAuthenticated, ]
 
     def post(self, request, *args, **kwargs):
-        success = request_validation(request.data)
+        success = standardizer.request_validation(request.data)
         if not success:
             response = Response(status=status.HTTP_400_BAD_REQUEST)
         else:
-            data = standard_deviation(request.data)
+            data = standardizer.standard_deviation(request.data)
             data = {
                 'success': data['success'],
                 'result': data['result']

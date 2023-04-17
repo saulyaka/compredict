@@ -12,6 +12,10 @@ class ValidationTestCase(TestCase):
         data = {'sensor_1': {'a': 5}}
         self.assertFalse(request_validation(data))
 
+    def test_wrong_data(self):
+        data = [1, 2, 3]
+        self.assertFalse(request_validation(data))
+
     def test_different_lenght(self):
         data = {
             'sensor_1': [1, 2, 3],
